@@ -1,0 +1,1889 @@
+<html
+        xmlns="http://www.w3.org/TR/REC-html40">
+<head>
+<title>Jira</title>
+<style type="text/css">
+table {
+    mso-displayed-decimal-separator:"\.";
+    mso-displayed-thousand-separator:"\,";
+}
+body
+{
+    margin: 0px;
+    font-size: 12px;
+    font-family: Arial, sans-serif;
+    color:black;
+}
+
+</style>
+<META HTTP-EQUIV="Content-Type" Content="application/vnd.ms-excel; charset=UTF-8">
+<!-- JRA-7598 - ensure fields (e.g. description) occupy only one cell - even fields containing newlines. -->
+<!--
+Vertical align all cells to the top, in order to align all issue rows of issuetable to the top,
+since Excel does not use or save the css files it is hardcoded here.
+-->
+<style>
+@page
+{
+mso-page-orientation:landscape;
+margin:.25in .25in .5in .25in;
+mso-header-margin:.5in;
+mso-footer-margin:.25in;
+mso-footer-data:"&R&P of &N";
+mso-horizontal-page-align:center;
+mso-vertical-page-align:center;
+}
+
+td.issuekey,
+td.issuetype,
+td.status {
+    mso-style-parent: "";
+    mso-number-format: \@;
+    text-align: left;
+}
+br
+{
+    mso-data-placement:same-cell;
+}
+
+td
+{
+    vertical-align: top;
+}
+</style>
+
+<!--[if gte mso 9]><xml>
+<x:ExcelWorkbook>
+<x:ExcelWorksheets>
+<x:ExcelWorksheet>
+<x:Name>general_report</x:Name>
+<x:WorksheetOptions>
+<x:Print>
+<x:ValidPrinterInfo/>
+</x:Print>
+</x:WorksheetOptions>
+</x:ExcelWorksheet>
+</x:ExcelWorksheets>
+</x:ExcelWorkbook>
+</xml><![endif]-->
+</head>
+<body>
+
+<table border="1">
+    <tr bgcolor="#fffdfe" height="219">
+        <td colspan="75">
+            <img src="https://codethedream.atlassian.net/jira-logo-scaled.png" width="1039" height="219" border="0" alt="Jira">
+        </td>
+    </tr>
+    <tr>
+        <td colspan="75">
+            <a href="https://codethedream.atlassian.net/issues/?jql=project+%3D+%22WC%22+AND+assignee+%3D+%225ef51a6954c8a50ab5bdf810%22+ORDER+BY+created+DESC">Jira</a>
+        </td>
+    </tr>
+    <tr>
+                <td colspan="75">
+            Displaying <strong>14</strong> issues at <strong>10/Oct/22 6:20 AM</strong>.
+        </td>
+    </tr>
+</table>
+
+
+
+
+                                        <table id="issuetable" class="aui " border="1" cellpadding="3" cellspacing="1" width="100%">
+                        <thead>
+        <tr class="rowHeader">
+            
+                                                            <th class="colHeaderLink headerrow-project" data-id="project">
+                                                        Project
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-issuekey" data-id="issuekey">
+                                                        Key
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-summary" data-id="summary">
+                                                        Summary
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-issuetype" data-id="issuetype">
+                                                        Issue Type
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-status" data-id="status">
+                                                        Status
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-priority" data-id="priority">
+                                                        Priority
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-resolution" data-id="resolution">
+                                                        Resolution
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-assignee" data-id="assignee">
+                                                        Assignee
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-reporter" data-id="reporter">
+                                                        Reporter
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-creator" data-id="creator">
+                                                        Creator
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-created" data-id="created">
+                                                        Created
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-lastViewed" data-id="lastViewed">
+                                                        Last Viewed
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-updated" data-id="updated">
+                                                        Updated
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-resolutiondate" data-id="resolutiondate">
+                                                        Resolved
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-versions" data-id="versions">
+                                                        Affects versions
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-fixVersions" data-id="fixVersions">
+                                                        Fix versions
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-components" data-id="components">
+                                                        Components
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-duedate" data-id="duedate">
+                                                        Due date
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-votes" data-id="votes">
+                                                        Votes
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-watches" data-id="watches">
+                                                        Watchers
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-thumbnail" data-id="thumbnail">
+                                                        Images
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-timeoriginalestimate" data-id="timeoriginalestimate">
+                                                        Original estimate
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-timeestimate" data-id="timeestimate">
+                                                        Remaining Estimate
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-timespent" data-id="timespent">
+                                                        Time Spent
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-workratio" data-id="workratio">
+                                                        Work Ratio
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-subtasks" data-id="subtasks">
+                                                        Sub-tasks
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-issuelinks" data-id="issuelinks">
+                                                        Linked Issues
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-environment" data-id="environment">
+                                                        Environment
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-description" data-id="description">
+                                                        Description
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-security" data-id="security">
+                                                        Security Level
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-progress" data-id="progress">
+                                                        Progress
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-aggregateprogress" data-id="aggregateprogress">
+                                                        Σ Progress
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-aggregatetimespent" data-id="aggregatetimespent">
+                                                        Σ Time Spent
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-aggregatetimeestimate" data-id="aggregatetimeestimate">
+                                                        Σ Remaining Estimate
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-aggregatetimeoriginalestimate" data-id="aggregatetimeoriginalestimate">
+                                                        Σ Original Estimate
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-labels" data-id="labels">
+                                                        Labels
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-statuscategorychangedate" data-id="statuscategorychangedate">
+                                                        Status Category Changed
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-statusCategory" data-id="statusCategory">
+                                                        Status Category
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-parent" data-id="parent">
+                                                        Parent
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10043" data-id="customfield_10043">
+                                                        Bug Report(s)
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10032" data-id="customfield_10032">
+                                                        Checklist Completed
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10038" data-id="customfield_10038">
+                                                        Checklist Completed
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10033" data-id="customfield_10033">
+                                                        Checklist Content YAML
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10039" data-id="customfield_10039">
+                                                        Checklist Content YAML
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10036" data-id="customfield_10036">
+                                                        Checklist Progress
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10037" data-id="customfield_10037">
+                                                        Checklist Progress %
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10041" data-id="customfield_10041">
+                                                        Checklist Template
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10034" data-id="customfield_10034">
+                                                        Checklist Text
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10040" data-id="customfield_10040">
+                                                        Checklist Text
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10052" data-id="customfield_10052">
+                                                        Checklist Text (view-only)
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10046" data-id="customfield_10046">
+                                                        Code Reviewer
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10013" data-id="customfield_10013">
+                                                        Epic Color
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10014" data-id="customfield_10014">
+                                                        Epic Link
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10011" data-id="customfield_10011">
+                                                        Epic Name
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10012" data-id="customfield_10012">
+                                                        Epic Status
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10021" data-id="customfield_10021">
+                                                        Flagged
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10017" data-id="customfield_10017">
+                                                        Issue color
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10055" data-id="customfield_10055">
+                                                        Locked forms
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10053" data-id="customfield_10053">
+                                                        Open forms
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10002" data-id="customfield_10002">
+                                                        Organizations
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10018" data-id="customfield_10018">
+                                                        Parent Link
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10047" data-id="customfield_10047">
+                                                        Pull Request URL
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10019" data-id="customfield_10019">
+                                                        Rank
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10010" data-id="customfield_10010">
+                                                        Request Type
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10050" data-id="customfield_10050">
+                                                        Request participants
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10020" data-id="customfield_10020">
+                                                        Sprint
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10015" data-id="customfield_10015">
+                                                        Start date
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10026" data-id="customfield_10026">
+                                                        Story Points
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10016" data-id="customfield_10016">
+                                                        Story point estimate
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10054" data-id="customfield_10054">
+                                                        Submitted forms
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10023" data-id="customfield_10023">
+                                                        Target end
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10022" data-id="customfield_10022">
+                                                        Target start
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10001" data-id="customfield_10001">
+                                                        Team
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10056" data-id="customfield_10056">
+                                                        Total forms
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10000" data-id="customfield_10000">
+                                                        Development
+                                                    </th>
+                                                                    </tr>
+    </thead>
+    <tbody>
+                    
+
+                <tr id="issuerow11374" rel="11374" data-issuekey="WC-77" class="issuerow">
+                                            <td class="project">    Warren County
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="WC-77" href="https://codethedream.atlassian.net/browse/WC-77">WC-77</a>
+</td>
+                                            <td class="summary"><p>
+                As a user I should receive an email when someone leaves a review about me.
+    </p>
+</td>
+                                            <td class="issuetype">    Task
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-green jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;">Done</span>    </td>
+                                            <td class="priority">           Medium
+    </td>
+                                            <td class="resolution">    Done
+</td>
+                                            <td class="assignee">            Sheila Hdez
+    </td>
+                                            <td class="reporter">            Charles Anderson
+    </td>
+                                            <td class="creator">            Charles Anderson
+    </td>
+                                            <td class="created"> 28/May/21 7:51 AM </td>
+                                            <td class="lastViewed"> &nbsp; </td>
+                                            <td class="updated"> 10/Jun/21 5:13 PM </td>
+                                            <td class="resolutiondate"> 10/Jun/21 5:13 PM </td>
+                                            <td class="versions">    &nbsp;
+</td>
+                                            <td class="fixVersions">    &nbsp;
+</td>
+                                            <td class="components">    &nbsp;
+</td>
+                                            <td class="duedate">    &nbsp;
+</td>
+                                            <td class="votes">0</td>
+                                            <td class="watches">1</td>
+                                            <td class="thumbnail"></td>
+                                            <td class="timeoriginalestimate"></td>
+                                            <td class="timeestimate"></td>
+                                            <td class="timespent"></td>
+                                            <td class="workratio">&nbsp;
+</td>
+                                            <td class="subtasks"></td>
+                                            <td class="issuelinks"></td>
+                                            <td class="environment"></td>
+                                            <td class="description"></td>
+                                            <td class="security"></td>
+                                            <td class="progress"></td>
+                                            <td class="aggregateprogress"></td>
+                                            <td class="aggregatetimespent"></td>
+                                            <td class="aggregatetimeestimate"></td>
+                                            <td class="aggregatetimeoriginalestimate"></td>
+                                            <td class="labels"></td>
+                                            <td class="statuscategorychangedate"> 10/Jun/21 5:13 PM </td>
+                                            <td class="statusCategory">
+    <span class="aui-lozenge aui-lozenge-subtle jira-issue-status-lozenge jira-issue-status-lozenge-green
+            jira-issue-status-lozenge-max-width-medium">Done</span>
+</td>
+                                            <td class="parent"></td>
+                                            <td class="customfield_10043"></td>
+                                            <td class="customfield_10032"></td>
+                                            <td class="customfield_10038"></td>
+                                            <td class="customfield_10033"></td>
+                                            <td class="customfield_10039"></td>
+                                            <td class="customfield_10036"></td>
+                                            <td class="customfield_10037"></td>
+                                            <td class="customfield_10041"></td>
+                                            <td class="customfield_10034"></td>
+                                            <td class="customfield_10040"></td>
+                                            <td class="customfield_10052"></td>
+                                            <td class="customfield_10046"></td>
+                                            <td class="customfield_10013"></td>
+                                            <td class="customfield_10014">
+            Review System
+    </td>
+                                            <td class="customfield_10011"></td>
+                                            <td class="customfield_10012"></td>
+                                            <td class="customfield_10021"></td>
+                                            <td class="customfield_10017"></td>
+                                            <td class="customfield_10055"></td>
+                                            <td class="customfield_10053"></td>
+                                            <td class="customfield_10002"></td>
+                                            <td class="customfield_10018"></td>
+                                            <td class="customfield_10047"></td>
+                                            <td class="customfield_10019">      0|i00316:zzd
+  </td>
+                                            <td class="customfield_10010"></td>
+                                            <td class="customfield_10050"></td>
+                                            <td class="customfield_10020">WC Sprint 5</td>
+                                            <td class="customfield_10015"></td>
+                                            <td class="customfield_10026"></td>
+                                            <td class="customfield_10016"></td>
+                                            <td class="customfield_10054"></td>
+                                            <td class="customfield_10023"></td>
+                                            <td class="customfield_10022"></td>
+                                            <td class="customfield_10001"></td>
+                                            <td class="customfield_10056"></td>
+                                            <td class="customfield_10000"></td>
+                    </tr>
+
+
+                <tr id="issuerow11269" rel="11269" data-issuekey="WC-73" class="issuerow">
+                                            <td class="project">    Warren County
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="WC-73" href="https://codethedream.atlassian.net/browse/WC-73">WC-73</a>
+</td>
+                                            <td class="summary"><p>
+                As a user i should see a mobile responsive landing page
+    </p>
+</td>
+                                            <td class="issuetype">    Task
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-green jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;">Done</span>    </td>
+                                            <td class="priority">           Medium
+    </td>
+                                            <td class="resolution">    Done
+</td>
+                                            <td class="assignee">            Sheila Hdez
+    </td>
+                                            <td class="reporter">            Charles Anderson
+    </td>
+                                            <td class="creator">            Charles Anderson
+    </td>
+                                            <td class="created"> 13/May/21 5:41 PM </td>
+                                            <td class="lastViewed"> &nbsp; </td>
+                                            <td class="updated"> 10/Jun/21 5:12 PM </td>
+                                            <td class="resolutiondate"> 10/Jun/21 5:12 PM </td>
+                                            <td class="versions">    &nbsp;
+</td>
+                                            <td class="fixVersions">    &nbsp;
+</td>
+                                            <td class="components">    &nbsp;
+</td>
+                                            <td class="duedate">    &nbsp;
+</td>
+                                            <td class="votes">0</td>
+                                            <td class="watches">1</td>
+                                            <td class="thumbnail"></td>
+                                            <td class="timeoriginalestimate"></td>
+                                            <td class="timeestimate"></td>
+                                            <td class="timespent"></td>
+                                            <td class="workratio">&nbsp;
+</td>
+                                            <td class="subtasks"></td>
+                                            <td class="issuelinks"></td>
+                                            <td class="environment"></td>
+                                            <td class="description">      Ready for Review, the landing page should be responsive in screens max-width :530px
+  </td>
+                                            <td class="security"></td>
+                                            <td class="progress"></td>
+                                            <td class="aggregateprogress"></td>
+                                            <td class="aggregatetimespent"></td>
+                                            <td class="aggregatetimeestimate"></td>
+                                            <td class="aggregatetimeoriginalestimate"></td>
+                                            <td class="labels"></td>
+                                            <td class="statuscategorychangedate"> 10/Jun/21 5:12 PM </td>
+                                            <td class="statusCategory">
+    <span class="aui-lozenge aui-lozenge-subtle jira-issue-status-lozenge jira-issue-status-lozenge-green
+            jira-issue-status-lozenge-max-width-medium">Done</span>
+</td>
+                                            <td class="parent"></td>
+                                            <td class="customfield_10043"></td>
+                                            <td class="customfield_10032"></td>
+                                            <td class="customfield_10038"></td>
+                                            <td class="customfield_10033"></td>
+                                            <td class="customfield_10039"></td>
+                                            <td class="customfield_10036"></td>
+                                            <td class="customfield_10037"></td>
+                                            <td class="customfield_10041"></td>
+                                            <td class="customfield_10034"></td>
+                                            <td class="customfield_10040"></td>
+                                            <td class="customfield_10052"></td>
+                                            <td class="customfield_10046"></td>
+                                            <td class="customfield_10013"></td>
+                                            <td class="customfield_10014">
+            App Version 2.0 cleanup
+    </td>
+                                            <td class="customfield_10011"></td>
+                                            <td class="customfield_10012"></td>
+                                            <td class="customfield_10021"></td>
+                                            <td class="customfield_10017"></td>
+                                            <td class="customfield_10055"></td>
+                                            <td class="customfield_10053"></td>
+                                            <td class="customfield_10002"></td>
+                                            <td class="customfield_10018"></td>
+                                            <td class="customfield_10047"></td>
+                                            <td class="customfield_10019">      0|i00316:zz9
+  </td>
+                                            <td class="customfield_10010"></td>
+                                            <td class="customfield_10050"></td>
+                                            <td class="customfield_10020">WC Sprint 5</td>
+                                            <td class="customfield_10015"></td>
+                                            <td class="customfield_10026"></td>
+                                            <td class="customfield_10016"></td>
+                                            <td class="customfield_10054"></td>
+                                            <td class="customfield_10023"></td>
+                                            <td class="customfield_10022"></td>
+                                            <td class="customfield_10001"></td>
+                                            <td class="customfield_10056"></td>
+                                            <td class="customfield_10000"></td>
+                    </tr>
+
+
+                <tr id="issuerow11229" rel="11229" data-issuekey="WC-72" class="issuerow">
+                                            <td class="project">    Warren County
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="WC-72" href="https://codethedream.atlassian.net/browse/WC-72">WC-72</a>
+</td>
+                                            <td class="summary"><p>
+                As user I should receive an email when a post expires
+    </p>
+</td>
+                                            <td class="issuetype">    Task
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-green jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;">Done</span>    </td>
+                                            <td class="priority">           Medium
+    </td>
+                                            <td class="resolution">    Done
+</td>
+                                            <td class="assignee">            Sheila Hdez
+    </td>
+                                            <td class="reporter">            Charles Anderson
+    </td>
+                                            <td class="creator">            Charles Anderson
+    </td>
+                                            <td class="created"> 06/May/21 6:54 PM </td>
+                                            <td class="lastViewed"> &nbsp; </td>
+                                            <td class="updated"> 10/Jun/21 5:13 PM </td>
+                                            <td class="resolutiondate"> 10/Jun/21 5:13 PM </td>
+                                            <td class="versions">    &nbsp;
+</td>
+                                            <td class="fixVersions">    &nbsp;
+</td>
+                                            <td class="components">    &nbsp;
+</td>
+                                            <td class="duedate">    &nbsp;
+</td>
+                                            <td class="votes">0</td>
+                                            <td class="watches">1</td>
+                                            <td class="thumbnail"></td>
+                                            <td class="timeoriginalestimate"></td>
+                                            <td class="timeestimate"></td>
+                                            <td class="timespent"></td>
+                                            <td class="workratio">&nbsp;
+</td>
+                                            <td class="subtasks"></td>
+                                            <td class="issuelinks"></td>
+                                            <td class="environment"></td>
+                                            <td class="description">      * The email should prompt the user to review any users that had a transaction which started in the app.<br/>
+* The email should be automatically generated and sent when Date.today &gt; post.end_date
+  </td>
+                                            <td class="security"></td>
+                                            <td class="progress"></td>
+                                            <td class="aggregateprogress"></td>
+                                            <td class="aggregatetimespent"></td>
+                                            <td class="aggregatetimeestimate"></td>
+                                            <td class="aggregatetimeoriginalestimate"></td>
+                                            <td class="labels"></td>
+                                            <td class="statuscategorychangedate"> 10/Jun/21 5:13 PM </td>
+                                            <td class="statusCategory">
+    <span class="aui-lozenge aui-lozenge-subtle jira-issue-status-lozenge jira-issue-status-lozenge-green
+            jira-issue-status-lozenge-max-width-medium">Done</span>
+</td>
+                                            <td class="parent"></td>
+                                            <td class="customfield_10043"></td>
+                                            <td class="customfield_10032"></td>
+                                            <td class="customfield_10038"></td>
+                                            <td class="customfield_10033"></td>
+                                            <td class="customfield_10039"></td>
+                                            <td class="customfield_10036"></td>
+                                            <td class="customfield_10037"></td>
+                                            <td class="customfield_10041"></td>
+                                            <td class="customfield_10034"></td>
+                                            <td class="customfield_10040"></td>
+                                            <td class="customfield_10052"></td>
+                                            <td class="customfield_10046"></td>
+                                            <td class="customfield_10013"></td>
+                                            <td class="customfield_10014">
+            Review System
+    </td>
+                                            <td class="customfield_10011"></td>
+                                            <td class="customfield_10012"></td>
+                                            <td class="customfield_10021"></td>
+                                            <td class="customfield_10017"></td>
+                                            <td class="customfield_10055"></td>
+                                            <td class="customfield_10053"></td>
+                                            <td class="customfield_10002"></td>
+                                            <td class="customfield_10018"></td>
+                                            <td class="customfield_10047"></td>
+                                            <td class="customfield_10019">      0|i00316:zzi
+  </td>
+                                            <td class="customfield_10010"></td>
+                                            <td class="customfield_10050"></td>
+                                            <td class="customfield_10020">WC Sprint 4, WC Sprint 5</td>
+                                            <td class="customfield_10015"></td>
+                                            <td class="customfield_10026"></td>
+                                            <td class="customfield_10016"></td>
+                                            <td class="customfield_10054"></td>
+                                            <td class="customfield_10023"></td>
+                                            <td class="customfield_10022"></td>
+                                            <td class="customfield_10001"></td>
+                                            <td class="customfield_10056"></td>
+                                            <td class="customfield_10000"></td>
+                    </tr>
+
+
+                <tr id="issuerow11205" rel="11205" data-issuekey="WC-69" class="issuerow">
+                                            <td class="project">    Warren County
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="WC-69" href="https://codethedream.atlassian.net/browse/WC-69">WC-69</a>
+</td>
+                                            <td class="summary"><p>
+                User Registration form improvements
+    </p>
+</td>
+                                            <td class="issuetype">    Bug
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-green jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;">Done</span>    </td>
+                                            <td class="priority">           Medium
+    </td>
+                                            <td class="resolution">    Done
+</td>
+                                            <td class="assignee">            Sheila Hdez
+    </td>
+                                            <td class="reporter">            Charles Anderson
+    </td>
+                                            <td class="creator">            Charles Anderson
+    </td>
+                                            <td class="created"> 04/May/21 8:14 AM </td>
+                                            <td class="lastViewed"> &nbsp; </td>
+                                            <td class="updated"> 13/May/21 5:14 PM </td>
+                                            <td class="resolutiondate"> 13/May/21 5:14 PM </td>
+                                            <td class="versions">    &nbsp;
+</td>
+                                            <td class="fixVersions">    &nbsp;
+</td>
+                                            <td class="components">    &nbsp;
+</td>
+                                            <td class="duedate">    &nbsp;
+</td>
+                                            <td class="votes">0</td>
+                                            <td class="watches">1</td>
+                                            <td class="thumbnail"></td>
+                                            <td class="timeoriginalestimate"></td>
+                                            <td class="timeestimate"></td>
+                                            <td class="timespent"></td>
+                                            <td class="workratio">&nbsp;
+</td>
+                                            <td class="subtasks"></td>
+                                            <td class="issuelinks"></td>
+                                            <td class="environment"></td>
+                                            <td class="description">      * Name and Contact Name should have more description when hover over <br/>
+* Password and Confirm Password classes need tweaking
+  </td>
+                                            <td class="security"></td>
+                                            <td class="progress"></td>
+                                            <td class="aggregateprogress"></td>
+                                            <td class="aggregatetimespent"></td>
+                                            <td class="aggregatetimeestimate"></td>
+                                            <td class="aggregatetimeoriginalestimate"></td>
+                                            <td class="labels"></td>
+                                            <td class="statuscategorychangedate"> 13/May/21 5:14 PM </td>
+                                            <td class="statusCategory">
+    <span class="aui-lozenge aui-lozenge-subtle jira-issue-status-lozenge jira-issue-status-lozenge-green
+            jira-issue-status-lozenge-max-width-medium">Done</span>
+</td>
+                                            <td class="parent"></td>
+                                            <td class="customfield_10043"></td>
+                                            <td class="customfield_10032"></td>
+                                            <td class="customfield_10038"></td>
+                                            <td class="customfield_10033"></td>
+                                            <td class="customfield_10039"></td>
+                                            <td class="customfield_10036"></td>
+                                            <td class="customfield_10037"></td>
+                                            <td class="customfield_10041"></td>
+                                            <td class="customfield_10034"></td>
+                                            <td class="customfield_10040"></td>
+                                            <td class="customfield_10052"></td>
+                                            <td class="customfield_10046"></td>
+                                            <td class="customfield_10013"></td>
+                                            <td class="customfield_10014">
+            App Version 2.0 cleanup
+    </td>
+                                            <td class="customfield_10011"></td>
+                                            <td class="customfield_10012"></td>
+                                            <td class="customfield_10021"></td>
+                                            <td class="customfield_10017"></td>
+                                            <td class="customfield_10055"></td>
+                                            <td class="customfield_10053"></td>
+                                            <td class="customfield_10002"></td>
+                                            <td class="customfield_10018"></td>
+                                            <td class="customfield_10047"></td>
+                                            <td class="customfield_10019">      0|i00316:zy
+  </td>
+                                            <td class="customfield_10010"></td>
+                                            <td class="customfield_10050"></td>
+                                            <td class="customfield_10020">WC Sprint 4</td>
+                                            <td class="customfield_10015"></td>
+                                            <td class="customfield_10026"></td>
+                                            <td class="customfield_10016"></td>
+                                            <td class="customfield_10054"></td>
+                                            <td class="customfield_10023"></td>
+                                            <td class="customfield_10022"></td>
+                                            <td class="customfield_10001"></td>
+                                            <td class="customfield_10056"></td>
+                                            <td class="customfield_10000"></td>
+                    </tr>
+
+
+                <tr id="issuerow11204" rel="11204" data-issuekey="WC-68" class="issuerow">
+                                            <td class="project">    Warren County
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="WC-68" href="https://codethedream.atlassian.net/browse/WC-68">WC-68</a>
+</td>
+                                            <td class="summary"><p>
+                Categories index cards don&#39;t line up correctly
+
+    </p>
+</td>
+                                            <td class="issuetype">    Bug
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-green jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;">Done</span>    </td>
+                                            <td class="priority">           Medium
+    </td>
+                                            <td class="resolution">    Done
+</td>
+                                            <td class="assignee">            Sheila Hdez
+    </td>
+                                            <td class="reporter">            Charles Anderson
+    </td>
+                                            <td class="creator">            Charles Anderson
+    </td>
+                                            <td class="created"> 04/May/21 8:12 AM </td>
+                                            <td class="lastViewed"> &nbsp; </td>
+                                            <td class="updated"> 27/May/21 5:21 PM </td>
+                                            <td class="resolutiondate"> 27/May/21 5:21 PM </td>
+                                            <td class="versions">    &nbsp;
+</td>
+                                            <td class="fixVersions">    &nbsp;
+</td>
+                                            <td class="components">    &nbsp;
+</td>
+                                            <td class="duedate">    &nbsp;
+</td>
+                                            <td class="votes">0</td>
+                                            <td class="watches">1</td>
+                                            <td class="thumbnail"></td>
+                                            <td class="timeoriginalestimate"></td>
+                                            <td class="timeestimate"></td>
+                                            <td class="timespent"></td>
+                                            <td class="workratio">&nbsp;
+</td>
+                                            <td class="subtasks"></td>
+                                            <td class="issuelinks"></td>
+                                            <td class="environment"></td>
+                                            <td class="description"></td>
+                                            <td class="security"></td>
+                                            <td class="progress"></td>
+                                            <td class="aggregateprogress"></td>
+                                            <td class="aggregatetimespent"></td>
+                                            <td class="aggregatetimeestimate"></td>
+                                            <td class="aggregatetimeoriginalestimate"></td>
+                                            <td class="labels"></td>
+                                            <td class="statuscategorychangedate"> 27/May/21 5:21 PM </td>
+                                            <td class="statusCategory">
+    <span class="aui-lozenge aui-lozenge-subtle jira-issue-status-lozenge jira-issue-status-lozenge-green
+            jira-issue-status-lozenge-max-width-medium">Done</span>
+</td>
+                                            <td class="parent"></td>
+                                            <td class="customfield_10043"></td>
+                                            <td class="customfield_10032"></td>
+                                            <td class="customfield_10038"></td>
+                                            <td class="customfield_10033"></td>
+                                            <td class="customfield_10039"></td>
+                                            <td class="customfield_10036"></td>
+                                            <td class="customfield_10037"></td>
+                                            <td class="customfield_10041"></td>
+                                            <td class="customfield_10034"></td>
+                                            <td class="customfield_10040"></td>
+                                            <td class="customfield_10052"></td>
+                                            <td class="customfield_10046"></td>
+                                            <td class="customfield_10013"></td>
+                                            <td class="customfield_10014">
+            App Version 2.0 cleanup
+    </td>
+                                            <td class="customfield_10011"></td>
+                                            <td class="customfield_10012"></td>
+                                            <td class="customfield_10021"></td>
+                                            <td class="customfield_10017"></td>
+                                            <td class="customfield_10055"></td>
+                                            <td class="customfield_10053"></td>
+                                            <td class="customfield_10002"></td>
+                                            <td class="customfield_10018"></td>
+                                            <td class="customfield_10047"></td>
+                                            <td class="customfield_10019">      0|i00316:zx
+  </td>
+                                            <td class="customfield_10010"></td>
+                                            <td class="customfield_10050"></td>
+                                            <td class="customfield_10020">WC Sprint 4</td>
+                                            <td class="customfield_10015"></td>
+                                            <td class="customfield_10026"></td>
+                                            <td class="customfield_10016"></td>
+                                            <td class="customfield_10054"></td>
+                                            <td class="customfield_10023"></td>
+                                            <td class="customfield_10022"></td>
+                                            <td class="customfield_10001"></td>
+                                            <td class="customfield_10056"></td>
+                                            <td class="customfield_10000"></td>
+                    </tr>
+
+
+                <tr id="issuerow11008" rel="11008" data-issuekey="WC-56" class="issuerow">
+                                            <td class="project">    Warren County
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="WC-56" href="https://codethedream.atlassian.net/browse/WC-56">WC-56</a>
+</td>
+                                            <td class="summary"><p>
+                Products should require an image attached
+    </p>
+</td>
+                                            <td class="issuetype">    Bug
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-green jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;">Done</span>    </td>
+                                            <td class="priority">           Medium
+    </td>
+                                            <td class="resolution">    Done
+</td>
+                                            <td class="assignee">            Sheila Hdez
+    </td>
+                                            <td class="reporter">            Charles Anderson
+    </td>
+                                            <td class="creator">            Charles Anderson
+    </td>
+                                            <td class="created"> 01/Apr/21 5:18 PM </td>
+                                            <td class="lastViewed"> &nbsp; </td>
+                                            <td class="updated"> 13/May/21 5:14 PM </td>
+                                            <td class="resolutiondate"> 13/May/21 5:14 PM </td>
+                                            <td class="versions">    &nbsp;
+</td>
+                                            <td class="fixVersions">    &nbsp;
+</td>
+                                            <td class="components">    &nbsp;
+</td>
+                                            <td class="duedate">    &nbsp;
+</td>
+                                            <td class="votes">0</td>
+                                            <td class="watches">1</td>
+                                            <td class="thumbnail"></td>
+                                            <td class="timeoriginalestimate"></td>
+                                            <td class="timeestimate"></td>
+                                            <td class="timespent"></td>
+                                            <td class="workratio">&nbsp;
+</td>
+                                            <td class="subtasks"></td>
+                                            <td class="issuelinks"></td>
+                                            <td class="environment"></td>
+                                            <td class="description"></td>
+                                            <td class="security"></td>
+                                            <td class="progress"></td>
+                                            <td class="aggregateprogress"></td>
+                                            <td class="aggregatetimespent"></td>
+                                            <td class="aggregatetimeestimate"></td>
+                                            <td class="aggregatetimeoriginalestimate"></td>
+                                            <td class="labels"></td>
+                                            <td class="statuscategorychangedate"> 13/May/21 5:14 PM </td>
+                                            <td class="statusCategory">
+    <span class="aui-lozenge aui-lozenge-subtle jira-issue-status-lozenge jira-issue-status-lozenge-green
+            jira-issue-status-lozenge-max-width-medium">Done</span>
+</td>
+                                            <td class="parent"></td>
+                                            <td class="customfield_10043"></td>
+                                            <td class="customfield_10032"></td>
+                                            <td class="customfield_10038"></td>
+                                            <td class="customfield_10033"></td>
+                                            <td class="customfield_10039"></td>
+                                            <td class="customfield_10036"></td>
+                                            <td class="customfield_10037"></td>
+                                            <td class="customfield_10041"></td>
+                                            <td class="customfield_10034"></td>
+                                            <td class="customfield_10040"></td>
+                                            <td class="customfield_10052"></td>
+                                            <td class="customfield_10046"></td>
+                                            <td class="customfield_10013"></td>
+                                            <td class="customfield_10014">
+            App Version 2.0 cleanup
+    </td>
+                                            <td class="customfield_10011"></td>
+                                            <td class="customfield_10012"></td>
+                                            <td class="customfield_10021"></td>
+                                            <td class="customfield_10017"></td>
+                                            <td class="customfield_10055"></td>
+                                            <td class="customfield_10053"></td>
+                                            <td class="customfield_10002"></td>
+                                            <td class="customfield_10018"></td>
+                                            <td class="customfield_10047"></td>
+                                            <td class="customfield_10019">      0|i00316:
+  </td>
+                                            <td class="customfield_10010"></td>
+                                            <td class="customfield_10050"></td>
+                                            <td class="customfield_10020">WC Sprint 4</td>
+                                            <td class="customfield_10015"></td>
+                                            <td class="customfield_10026"></td>
+                                            <td class="customfield_10016"></td>
+                                            <td class="customfield_10054"></td>
+                                            <td class="customfield_10023"></td>
+                                            <td class="customfield_10022"></td>
+                                            <td class="customfield_10001"></td>
+                                            <td class="customfield_10056"></td>
+                                            <td class="customfield_10000"></td>
+                    </tr>
+
+
+                <tr id="issuerow10977" rel="10977" data-issuekey="WC-49" class="issuerow">
+                                            <td class="project">    Warren County
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="WC-49" href="https://codethedream.atlassian.net/browse/WC-49">WC-49</a>
+</td>
+                                            <td class="summary"><p>
+                As a user I should see standardized views in all User views
+    </p>
+</td>
+                                            <td class="issuetype">    Task
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-green jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;">Done</span>    </td>
+                                            <td class="priority">           Medium
+    </td>
+                                            <td class="resolution">    Done
+</td>
+                                            <td class="assignee">            Sheila Hdez
+    </td>
+                                            <td class="reporter">            Charles Anderson
+    </td>
+                                            <td class="creator">            Charles Anderson
+    </td>
+                                            <td class="created"> 25/Mar/21 5:51 PM </td>
+                                            <td class="lastViewed"> &nbsp; </td>
+                                            <td class="updated"> 08/Apr/21 5:09 PM </td>
+                                            <td class="resolutiondate"> 08/Apr/21 5:09 PM </td>
+                                            <td class="versions">    &nbsp;
+</td>
+                                            <td class="fixVersions">    &nbsp;
+</td>
+                                            <td class="components">    &nbsp;
+</td>
+                                            <td class="duedate">    &nbsp;
+</td>
+                                            <td class="votes">0</td>
+                                            <td class="watches">1</td>
+                                            <td class="thumbnail"></td>
+                                            <td class="timeoriginalestimate"></td>
+                                            <td class="timeestimate"></td>
+                                            <td class="timespent"></td>
+                                            <td class="workratio">&nbsp;
+</td>
+                                            <td class="subtasks"></td>
+                                            <td class="issuelinks"></td>
+                                            <td class="environment"></td>
+                                            <td class="description">      * Need to implement app styling to user views other than users/registrations/
+  </td>
+                                            <td class="security"></td>
+                                            <td class="progress"></td>
+                                            <td class="aggregateprogress"></td>
+                                            <td class="aggregatetimespent"></td>
+                                            <td class="aggregatetimeestimate"></td>
+                                            <td class="aggregatetimeoriginalestimate"></td>
+                                            <td class="labels"></td>
+                                            <td class="statuscategorychangedate"> 08/Apr/21 5:09 PM </td>
+                                            <td class="statusCategory">
+    <span class="aui-lozenge aui-lozenge-subtle jira-issue-status-lozenge jira-issue-status-lozenge-green
+            jira-issue-status-lozenge-max-width-medium">Done</span>
+</td>
+                                            <td class="parent"></td>
+                                            <td class="customfield_10043"></td>
+                                            <td class="customfield_10032"></td>
+                                            <td class="customfield_10038"></td>
+                                            <td class="customfield_10033"></td>
+                                            <td class="customfield_10039"></td>
+                                            <td class="customfield_10036"></td>
+                                            <td class="customfield_10037"></td>
+                                            <td class="customfield_10041"></td>
+                                            <td class="customfield_10034"></td>
+                                            <td class="customfield_10040"></td>
+                                            <td class="customfield_10052"></td>
+                                            <td class="customfield_10046"></td>
+                                            <td class="customfield_10013"></td>
+                                            <td class="customfield_10014">
+            Appearance makeover
+    </td>
+                                            <td class="customfield_10011"></td>
+                                            <td class="customfield_10012"></td>
+                                            <td class="customfield_10021"></td>
+                                            <td class="customfield_10017"></td>
+                                            <td class="customfield_10055"></td>
+                                            <td class="customfield_10053"></td>
+                                            <td class="customfield_10002"></td>
+                                            <td class="customfield_10018"></td>
+                                            <td class="customfield_10047"></td>
+                                            <td class="customfield_10019">      0|i0040v:
+  </td>
+                                            <td class="customfield_10010"></td>
+                                            <td class="customfield_10050"></td>
+                                            <td class="customfield_10020">WC Sprint 2</td>
+                                            <td class="customfield_10015"></td>
+                                            <td class="customfield_10026"></td>
+                                            <td class="customfield_10016"></td>
+                                            <td class="customfield_10054"></td>
+                                            <td class="customfield_10023"></td>
+                                            <td class="customfield_10022"></td>
+                                            <td class="customfield_10001"></td>
+                                            <td class="customfield_10056"></td>
+                                            <td class="customfield_10000"></td>
+                    </tr>
+
+
+                <tr id="issuerow10976" rel="10976" data-issuekey="WC-48" class="issuerow">
+                                            <td class="project">    Warren County
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="WC-48" href="https://codethedream.atlassian.net/browse/WC-48">WC-48</a>
+</td>
+                                            <td class="summary"><p>
+                As a user I should be directed to the correct views
+    </p>
+</td>
+                                            <td class="issuetype">    Task
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-green jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;">Done</span>    </td>
+                                            <td class="priority">           Medium
+    </td>
+                                            <td class="resolution">    Done
+</td>
+                                            <td class="assignee">            Sheila Hdez
+    </td>
+                                            <td class="reporter">            Charles Anderson
+    </td>
+                                            <td class="creator">            Charles Anderson
+    </td>
+                                            <td class="created"> 25/Mar/21 5:49 PM </td>
+                                            <td class="lastViewed"> &nbsp; </td>
+                                            <td class="updated"> 27/Apr/21 5:10 PM </td>
+                                            <td class="resolutiondate"> 27/Apr/21 5:10 PM </td>
+                                            <td class="versions">    &nbsp;
+</td>
+                                            <td class="fixVersions">    &nbsp;
+</td>
+                                            <td class="components">    &nbsp;
+</td>
+                                            <td class="duedate">    &nbsp;
+</td>
+                                            <td class="votes">0</td>
+                                            <td class="watches">1</td>
+                                            <td class="thumbnail"></td>
+                                            <td class="timeoriginalestimate"></td>
+                                            <td class="timeestimate"></td>
+                                            <td class="timespent"></td>
+                                            <td class="workratio">&nbsp;
+</td>
+                                            <td class="subtasks"></td>
+                                            <td class="issuelinks"></td>
+                                            <td class="environment"></td>
+                                            <td class="description">      * hand test buttons in browser to make sure you are directed where you expect to go<br/>
+* Look through controllers to check that redirects go where you would expect 
+  </td>
+                                            <td class="security"></td>
+                                            <td class="progress"></td>
+                                            <td class="aggregateprogress"></td>
+                                            <td class="aggregatetimespent"></td>
+                                            <td class="aggregatetimeestimate"></td>
+                                            <td class="aggregatetimeoriginalestimate"></td>
+                                            <td class="labels"></td>
+                                            <td class="statuscategorychangedate"> 27/Apr/21 5:10 PM </td>
+                                            <td class="statusCategory">
+    <span class="aui-lozenge aui-lozenge-subtle jira-issue-status-lozenge jira-issue-status-lozenge-green
+            jira-issue-status-lozenge-max-width-medium">Done</span>
+</td>
+                                            <td class="parent"></td>
+                                            <td class="customfield_10043"></td>
+                                            <td class="customfield_10032"></td>
+                                            <td class="customfield_10038"></td>
+                                            <td class="customfield_10033"></td>
+                                            <td class="customfield_10039"></td>
+                                            <td class="customfield_10036"></td>
+                                            <td class="customfield_10037"></td>
+                                            <td class="customfield_10041"></td>
+                                            <td class="customfield_10034"></td>
+                                            <td class="customfield_10040"></td>
+                                            <td class="customfield_10052"></td>
+                                            <td class="customfield_10046"></td>
+                                            <td class="customfield_10013"></td>
+                                            <td class="customfield_10014"></td>
+                                            <td class="customfield_10011"></td>
+                                            <td class="customfield_10012"></td>
+                                            <td class="customfield_10021"></td>
+                                            <td class="customfield_10017"></td>
+                                            <td class="customfield_10055"></td>
+                                            <td class="customfield_10053"></td>
+                                            <td class="customfield_10002"></td>
+                                            <td class="customfield_10018"></td>
+                                            <td class="customfield_10047"></td>
+                                            <td class="customfield_10019">      0|i00314:
+  </td>
+                                            <td class="customfield_10010"></td>
+                                            <td class="customfield_10050"></td>
+                                            <td class="customfield_10020">WC Sprint 2</td>
+                                            <td class="customfield_10015"></td>
+                                            <td class="customfield_10026"></td>
+                                            <td class="customfield_10016"></td>
+                                            <td class="customfield_10054"></td>
+                                            <td class="customfield_10023"></td>
+                                            <td class="customfield_10022"></td>
+                                            <td class="customfield_10001"></td>
+                                            <td class="customfield_10056"></td>
+                                            <td class="customfield_10000"></td>
+                    </tr>
+
+
+                <tr id="issuerow10854" rel="10854" data-issuekey="WC-44" class="issuerow">
+                                            <td class="project">    Warren County
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="WC-44" href="https://codethedream.atlassian.net/browse/WC-44">WC-44</a>
+</td>
+                                            <td class="summary"><p>
+                As an Admin I should see a categiries link in the nav bar
+    </p>
+</td>
+                                            <td class="issuetype">    Task
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-green jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;">Done</span>    </td>
+                                            <td class="priority">           Medium
+    </td>
+                                            <td class="resolution">    Done
+</td>
+                                            <td class="assignee">            Sheila Hdez
+    </td>
+                                            <td class="reporter">            Charles Anderson
+    </td>
+                                            <td class="creator">            Charles Anderson
+    </td>
+                                            <td class="created"> 04/Mar/21 4:59 PM </td>
+                                            <td class="lastViewed"> &nbsp; </td>
+                                            <td class="updated"> 08/Apr/21 5:09 PM </td>
+                                            <td class="resolutiondate"> 08/Apr/21 5:09 PM </td>
+                                            <td class="versions">    &nbsp;
+</td>
+                                            <td class="fixVersions">    &nbsp;
+</td>
+                                            <td class="components">    &nbsp;
+</td>
+                                            <td class="duedate">    &nbsp;
+</td>
+                                            <td class="votes">0</td>
+                                            <td class="watches">1</td>
+                                            <td class="thumbnail"></td>
+                                            <td class="timeoriginalestimate"></td>
+                                            <td class="timeestimate"></td>
+                                            <td class="timespent"></td>
+                                            <td class="workratio">&nbsp;
+</td>
+                                            <td class="subtasks"></td>
+                                            <td class="issuelinks"></td>
+                                            <td class="environment"></td>
+                                            <td class="description"></td>
+                                            <td class="security"></td>
+                                            <td class="progress"></td>
+                                            <td class="aggregateprogress"></td>
+                                            <td class="aggregatetimespent"></td>
+                                            <td class="aggregatetimeestimate"></td>
+                                            <td class="aggregatetimeoriginalestimate"></td>
+                                            <td class="labels"></td>
+                                            <td class="statuscategorychangedate"> 08/Apr/21 5:09 PM </td>
+                                            <td class="statusCategory">
+    <span class="aui-lozenge aui-lozenge-subtle jira-issue-status-lozenge jira-issue-status-lozenge-green
+            jira-issue-status-lozenge-max-width-medium">Done</span>
+</td>
+                                            <td class="parent"></td>
+                                            <td class="customfield_10043"></td>
+                                            <td class="customfield_10032"></td>
+                                            <td class="customfield_10038"></td>
+                                            <td class="customfield_10033"></td>
+                                            <td class="customfield_10039"></td>
+                                            <td class="customfield_10036"></td>
+                                            <td class="customfield_10037"></td>
+                                            <td class="customfield_10041"></td>
+                                            <td class="customfield_10034"></td>
+                                            <td class="customfield_10040"></td>
+                                            <td class="customfield_10052"></td>
+                                            <td class="customfield_10046"></td>
+                                            <td class="customfield_10013"></td>
+                                            <td class="customfield_10014">
+            Appearance makeover
+    </td>
+                                            <td class="customfield_10011"></td>
+                                            <td class="customfield_10012"></td>
+                                            <td class="customfield_10021"></td>
+                                            <td class="customfield_10017"></td>
+                                            <td class="customfield_10055"></td>
+                                            <td class="customfield_10053"></td>
+                                            <td class="customfield_10002"></td>
+                                            <td class="customfield_10018"></td>
+                                            <td class="customfield_10047"></td>
+                                            <td class="customfield_10019">      0|i00317:
+  </td>
+                                            <td class="customfield_10010"></td>
+                                            <td class="customfield_10050"></td>
+                                            <td class="customfield_10020">WC Sprint 2</td>
+                                            <td class="customfield_10015"></td>
+                                            <td class="customfield_10026"></td>
+                                            <td class="customfield_10016"></td>
+                                            <td class="customfield_10054"></td>
+                                            <td class="customfield_10023"></td>
+                                            <td class="customfield_10022"></td>
+                                            <td class="customfield_10001"></td>
+                                            <td class="customfield_10056"></td>
+                                            <td class="customfield_10000"></td>
+                    </tr>
+
+
+                <tr id="issuerow10682" rel="10682" data-issuekey="WC-36" class="issuerow">
+                                            <td class="project">    Warren County
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="WC-36" href="https://codethedream.atlassian.net/browse/WC-36">WC-36</a>
+</td>
+                                            <td class="summary"><p>
+                As a user I should see the html template for table formatting in the users index.html.erb file
+    </p>
+</td>
+                                            <td class="issuetype">    Task
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-green jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;">Done</span>    </td>
+                                            <td class="priority">           Medium
+    </td>
+                                            <td class="resolution">    Done
+</td>
+                                            <td class="assignee">            Sheila Hdez
+    </td>
+                                            <td class="reporter">            Charles Anderson
+    </td>
+                                            <td class="creator">            Charles Anderson
+    </td>
+                                            <td class="created"> 16/Feb/21 8:57 AM </td>
+                                            <td class="lastViewed"> &nbsp; </td>
+                                            <td class="updated"> 08/Apr/21 5:09 PM </td>
+                                            <td class="resolutiondate"> 08/Apr/21 5:09 PM </td>
+                                            <td class="versions">    &nbsp;
+</td>
+                                            <td class="fixVersions">    &nbsp;
+</td>
+                                            <td class="components">    &nbsp;
+</td>
+                                            <td class="duedate">    &nbsp;
+</td>
+                                            <td class="votes">0</td>
+                                            <td class="watches">1</td>
+                                            <td class="thumbnail"></td>
+                                            <td class="timeoriginalestimate"></td>
+                                            <td class="timeestimate"></td>
+                                            <td class="timespent"></td>
+                                            <td class="workratio">&nbsp;
+</td>
+                                            <td class="subtasks"></td>
+                                            <td class="issuelinks"></td>
+                                            <td class="environment"></td>
+                                            <td class="description">      implement the template made in wc-22 in:<br/>
+<br/>
+* app/views/users/registrations/index.html.erb
+  </td>
+                                            <td class="security"></td>
+                                            <td class="progress"></td>
+                                            <td class="aggregateprogress"></td>
+                                            <td class="aggregatetimespent"></td>
+                                            <td class="aggregatetimeestimate"></td>
+                                            <td class="aggregatetimeoriginalestimate"></td>
+                                            <td class="labels"></td>
+                                            <td class="statuscategorychangedate"> 08/Apr/21 5:09 PM </td>
+                                            <td class="statusCategory">
+    <span class="aui-lozenge aui-lozenge-subtle jira-issue-status-lozenge jira-issue-status-lozenge-green
+            jira-issue-status-lozenge-max-width-medium">Done</span>
+</td>
+                                            <td class="parent"></td>
+                                            <td class="customfield_10043"></td>
+                                            <td class="customfield_10032"></td>
+                                            <td class="customfield_10038"></td>
+                                            <td class="customfield_10033"></td>
+                                            <td class="customfield_10039"></td>
+                                            <td class="customfield_10036"></td>
+                                            <td class="customfield_10037"></td>
+                                            <td class="customfield_10041"></td>
+                                            <td class="customfield_10034"></td>
+                                            <td class="customfield_10040"></td>
+                                            <td class="customfield_10052"></td>
+                                            <td class="customfield_10046"></td>
+                                            <td class="customfield_10013"></td>
+                                            <td class="customfield_10014">
+            Appearance makeover
+    </td>
+                                            <td class="customfield_10011"></td>
+                                            <td class="customfield_10012"></td>
+                                            <td class="customfield_10021"></td>
+                                            <td class="customfield_10017"></td>
+                                            <td class="customfield_10055"></td>
+                                            <td class="customfield_10053"></td>
+                                            <td class="customfield_10002"></td>
+                                            <td class="customfield_10018"></td>
+                                            <td class="customfield_10047"></td>
+                                            <td class="customfield_10019">      0|i002vv:
+  </td>
+                                            <td class="customfield_10010"></td>
+                                            <td class="customfield_10050"></td>
+                                            <td class="customfield_10020">WC Sprint 1, WC Sprint 2</td>
+                                            <td class="customfield_10015"></td>
+                                            <td class="customfield_10026"></td>
+                                            <td class="customfield_10016"></td>
+                                            <td class="customfield_10054"></td>
+                                            <td class="customfield_10023"></td>
+                                            <td class="customfield_10022"></td>
+                                            <td class="customfield_10001"></td>
+                                            <td class="customfield_10056"></td>
+                                            <td class="customfield_10000"></td>
+                    </tr>
+
+
+                <tr id="issuerow10681" rel="10681" data-issuekey="WC-35" class="issuerow">
+                                            <td class="project">    Warren County
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="WC-35" href="https://codethedream.atlassian.net/browse/WC-35">WC-35</a>
+</td>
+                                            <td class="summary"><p>
+                As a user I should see the html template for form and show views in the categories _form.html.erb and show.html.erb files
+    </p>
+</td>
+                                            <td class="issuetype">    Task
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-green jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;">Done</span>    </td>
+                                            <td class="priority">           Medium
+    </td>
+                                            <td class="resolution">    Done
+</td>
+                                            <td class="assignee">            Sheila Hdez
+    </td>
+                                            <td class="reporter">            Charles Anderson
+    </td>
+                                            <td class="creator">            Charles Anderson
+    </td>
+                                            <td class="created"> 16/Feb/21 8:57 AM </td>
+                                            <td class="lastViewed"> &nbsp; </td>
+                                            <td class="updated"> 08/Apr/21 5:09 PM </td>
+                                            <td class="resolutiondate"> 08/Apr/21 5:09 PM </td>
+                                            <td class="versions">    &nbsp;
+</td>
+                                            <td class="fixVersions">    &nbsp;
+</td>
+                                            <td class="components">    &nbsp;
+</td>
+                                            <td class="duedate">    &nbsp;
+</td>
+                                            <td class="votes">0</td>
+                                            <td class="watches">1</td>
+                                            <td class="thumbnail"></td>
+                                            <td class="timeoriginalestimate"></td>
+                                            <td class="timeestimate"></td>
+                                            <td class="timespent"></td>
+                                            <td class="workratio">&nbsp;
+</td>
+                                            <td class="subtasks"></td>
+                                            <td class="issuelinks"></td>
+                                            <td class="environment"></td>
+                                            <td class="description">      implement the template made in wc-24 in:<br/>
+<br/>
+* app/views/categories/_form.html.erb<br/>
+* app/views/categories/show.html.erb
+  </td>
+                                            <td class="security"></td>
+                                            <td class="progress"></td>
+                                            <td class="aggregateprogress"></td>
+                                            <td class="aggregatetimespent"></td>
+                                            <td class="aggregatetimeestimate"></td>
+                                            <td class="aggregatetimeoriginalestimate"></td>
+                                            <td class="labels"></td>
+                                            <td class="statuscategorychangedate"> 08/Apr/21 5:09 PM </td>
+                                            <td class="statusCategory">
+    <span class="aui-lozenge aui-lozenge-subtle jira-issue-status-lozenge jira-issue-status-lozenge-green
+            jira-issue-status-lozenge-max-width-medium">Done</span>
+</td>
+                                            <td class="parent"></td>
+                                            <td class="customfield_10043"></td>
+                                            <td class="customfield_10032"></td>
+                                            <td class="customfield_10038"></td>
+                                            <td class="customfield_10033"></td>
+                                            <td class="customfield_10039"></td>
+                                            <td class="customfield_10036"></td>
+                                            <td class="customfield_10037"></td>
+                                            <td class="customfield_10041"></td>
+                                            <td class="customfield_10034"></td>
+                                            <td class="customfield_10040"></td>
+                                            <td class="customfield_10052"></td>
+                                            <td class="customfield_10046"></td>
+                                            <td class="customfield_10013"></td>
+                                            <td class="customfield_10014">
+            Appearance makeover
+    </td>
+                                            <td class="customfield_10011"></td>
+                                            <td class="customfield_10012"></td>
+                                            <td class="customfield_10021"></td>
+                                            <td class="customfield_10017"></td>
+                                            <td class="customfield_10055"></td>
+                                            <td class="customfield_10053"></td>
+                                            <td class="customfield_10002"></td>
+                                            <td class="customfield_10018"></td>
+                                            <td class="customfield_10047"></td>
+                                            <td class="customfield_10019">      0|i002w1:
+  </td>
+                                            <td class="customfield_10010"></td>
+                                            <td class="customfield_10050"></td>
+                                            <td class="customfield_10020">WC Sprint 1, WC Sprint 2</td>
+                                            <td class="customfield_10015"></td>
+                                            <td class="customfield_10026"></td>
+                                            <td class="customfield_10016"></td>
+                                            <td class="customfield_10054"></td>
+                                            <td class="customfield_10023"></td>
+                                            <td class="customfield_10022"></td>
+                                            <td class="customfield_10001"></td>
+                                            <td class="customfield_10056"></td>
+                                            <td class="customfield_10000"></td>
+                    </tr>
+
+
+                <tr id="issuerow10680" rel="10680" data-issuekey="WC-34" class="issuerow">
+                                            <td class="project">    Warren County
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="WC-34" href="https://codethedream.atlassian.net/browse/WC-34">WC-34</a>
+</td>
+                                            <td class="summary"><p>
+                As a user I should see the html template for card formatting in the categories index.html.erb file
+    </p>
+</td>
+                                            <td class="issuetype">    Task
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-green jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;">Done</span>    </td>
+                                            <td class="priority">           Medium
+    </td>
+                                            <td class="resolution">    Done
+</td>
+                                            <td class="assignee">            Sheila Hdez
+    </td>
+                                            <td class="reporter">            Charles Anderson
+    </td>
+                                            <td class="creator">            Charles Anderson
+    </td>
+                                            <td class="created"> 16/Feb/21 8:56 AM </td>
+                                            <td class="lastViewed"> &nbsp; </td>
+                                            <td class="updated"> 08/Apr/21 5:08 PM </td>
+                                            <td class="resolutiondate"> 08/Apr/21 5:08 PM </td>
+                                            <td class="versions">    &nbsp;
+</td>
+                                            <td class="fixVersions">    &nbsp;
+</td>
+                                            <td class="components">    &nbsp;
+</td>
+                                            <td class="duedate">    &nbsp;
+</td>
+                                            <td class="votes">0</td>
+                                            <td class="watches">1</td>
+                                            <td class="thumbnail"></td>
+                                            <td class="timeoriginalestimate"></td>
+                                            <td class="timeestimate"></td>
+                                            <td class="timespent"></td>
+                                            <td class="workratio">&nbsp;
+</td>
+                                            <td class="subtasks"></td>
+                                            <td class="issuelinks"></td>
+                                            <td class="environment"></td>
+                                            <td class="description">      implement the template made in wc-23 in:<br/>
+<br/>
+* app/views/categories/index.html.erb
+  </td>
+                                            <td class="security"></td>
+                                            <td class="progress"></td>
+                                            <td class="aggregateprogress"></td>
+                                            <td class="aggregatetimespent"></td>
+                                            <td class="aggregatetimeestimate"></td>
+                                            <td class="aggregatetimeoriginalestimate"></td>
+                                            <td class="labels"></td>
+                                            <td class="statuscategorychangedate"> 08/Apr/21 5:08 PM </td>
+                                            <td class="statusCategory">
+    <span class="aui-lozenge aui-lozenge-subtle jira-issue-status-lozenge jira-issue-status-lozenge-green
+            jira-issue-status-lozenge-max-width-medium">Done</span>
+</td>
+                                            <td class="parent"></td>
+                                            <td class="customfield_10043"></td>
+                                            <td class="customfield_10032"></td>
+                                            <td class="customfield_10038"></td>
+                                            <td class="customfield_10033"></td>
+                                            <td class="customfield_10039"></td>
+                                            <td class="customfield_10036"></td>
+                                            <td class="customfield_10037"></td>
+                                            <td class="customfield_10041"></td>
+                                            <td class="customfield_10034"></td>
+                                            <td class="customfield_10040"></td>
+                                            <td class="customfield_10052"></td>
+                                            <td class="customfield_10046"></td>
+                                            <td class="customfield_10013"></td>
+                                            <td class="customfield_10014">
+            Appearance makeover
+    </td>
+                                            <td class="customfield_10011"></td>
+                                            <td class="customfield_10012"></td>
+                                            <td class="customfield_10021"></td>
+                                            <td class="customfield_10017"></td>
+                                            <td class="customfield_10055"></td>
+                                            <td class="customfield_10053"></td>
+                                            <td class="customfield_10002"></td>
+                                            <td class="customfield_10018"></td>
+                                            <td class="customfield_10047"></td>
+                                            <td class="customfield_10019">      0|i002w7:
+  </td>
+                                            <td class="customfield_10010"></td>
+                                            <td class="customfield_10050"></td>
+                                            <td class="customfield_10020">WC Sprint 1, WC Sprint 2</td>
+                                            <td class="customfield_10015"></td>
+                                            <td class="customfield_10026"></td>
+                                            <td class="customfield_10016"></td>
+                                            <td class="customfield_10054"></td>
+                                            <td class="customfield_10023"></td>
+                                            <td class="customfield_10022"></td>
+                                            <td class="customfield_10001"></td>
+                                            <td class="customfield_10056"></td>
+                                            <td class="customfield_10000"></td>
+                    </tr>
+
+
+                <tr id="issuerow10679" rel="10679" data-issuekey="WC-33" class="issuerow">
+                                            <td class="project">    Warren County
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="WC-33" href="https://codethedream.atlassian.net/browse/WC-33">WC-33</a>
+</td>
+                                            <td class="summary"><p>
+                As a user I should see the html template for form and show views in the users edit.html.erb, new.html.erb and show.html.erb files
+    </p>
+</td>
+                                            <td class="issuetype">    Task
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-green jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;">Done</span>    </td>
+                                            <td class="priority">           Medium
+    </td>
+                                            <td class="resolution">    Done
+</td>
+                                            <td class="assignee">            Sheila Hdez
+    </td>
+                                            <td class="reporter">            Charles Anderson
+    </td>
+                                            <td class="creator">            Charles Anderson
+    </td>
+                                            <td class="created"> 16/Feb/21 8:54 AM </td>
+                                            <td class="lastViewed"> &nbsp; </td>
+                                            <td class="updated"> 08/Apr/21 5:09 PM </td>
+                                            <td class="resolutiondate"> 08/Apr/21 5:09 PM </td>
+                                            <td class="versions">    &nbsp;
+</td>
+                                            <td class="fixVersions">    &nbsp;
+</td>
+                                            <td class="components">    &nbsp;
+</td>
+                                            <td class="duedate">    &nbsp;
+</td>
+                                            <td class="votes">0</td>
+                                            <td class="watches">1</td>
+                                            <td class="thumbnail"></td>
+                                            <td class="timeoriginalestimate"></td>
+                                            <td class="timeestimate"></td>
+                                            <td class="timespent"></td>
+                                            <td class="workratio">&nbsp;
+</td>
+                                            <td class="subtasks"></td>
+                                            <td class="issuelinks"></td>
+                                            <td class="environment"></td>
+                                            <td class="description">      implement the template made in wc-24 in:<br/>
+<br/>
+* app/views/users/registrations/new.html.erb<br/>
+* app/views/users/registrations/edit.html.erb<br/>
+* app/views/users/registrations/show.html.erb
+  </td>
+                                            <td class="security"></td>
+                                            <td class="progress"></td>
+                                            <td class="aggregateprogress"></td>
+                                            <td class="aggregatetimespent"></td>
+                                            <td class="aggregatetimeestimate"></td>
+                                            <td class="aggregatetimeoriginalestimate"></td>
+                                            <td class="labels"></td>
+                                            <td class="statuscategorychangedate"> 08/Apr/21 5:09 PM </td>
+                                            <td class="statusCategory">
+    <span class="aui-lozenge aui-lozenge-subtle jira-issue-status-lozenge jira-issue-status-lozenge-green
+            jira-issue-status-lozenge-max-width-medium">Done</span>
+</td>
+                                            <td class="parent"></td>
+                                            <td class="customfield_10043"></td>
+                                            <td class="customfield_10032"></td>
+                                            <td class="customfield_10038"></td>
+                                            <td class="customfield_10033"></td>
+                                            <td class="customfield_10039"></td>
+                                            <td class="customfield_10036"></td>
+                                            <td class="customfield_10037"></td>
+                                            <td class="customfield_10041"></td>
+                                            <td class="customfield_10034"></td>
+                                            <td class="customfield_10040"></td>
+                                            <td class="customfield_10052"></td>
+                                            <td class="customfield_10046"></td>
+                                            <td class="customfield_10013"></td>
+                                            <td class="customfield_10014">
+            Appearance makeover
+    </td>
+                                            <td class="customfield_10011"></td>
+                                            <td class="customfield_10012"></td>
+                                            <td class="customfield_10021"></td>
+                                            <td class="customfield_10017"></td>
+                                            <td class="customfield_10055"></td>
+                                            <td class="customfield_10053"></td>
+                                            <td class="customfield_10002"></td>
+                                            <td class="customfield_10018"></td>
+                                            <td class="customfield_10047"></td>
+                                            <td class="customfield_10019">      0|i002vt:
+  </td>
+                                            <td class="customfield_10010"></td>
+                                            <td class="customfield_10050"></td>
+                                            <td class="customfield_10020">WC Sprint 1, WC Sprint 2</td>
+                                            <td class="customfield_10015"></td>
+                                            <td class="customfield_10026"></td>
+                                            <td class="customfield_10016"></td>
+                                            <td class="customfield_10054"></td>
+                                            <td class="customfield_10023"></td>
+                                            <td class="customfield_10022"></td>
+                                            <td class="customfield_10001"></td>
+                                            <td class="customfield_10056"></td>
+                                            <td class="customfield_10000"></td>
+                    </tr>
+
+
+                <tr id="issuerow10647" rel="10647" data-issuekey="WC-16" class="issuerow">
+                                            <td class="project">    Warren County
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="WC-16" href="https://codethedream.atlassian.net/browse/WC-16">WC-16</a>
+</td>
+                                            <td class="summary"><p>
+                As a user I should see consistent input fields in app/views/categories/ This includes buttons, text fields, radio buttons, dropdowns, etc. all defined in the application.scss style guide.
+    </p>
+</td>
+                                            <td class="issuetype">    Task
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-green jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;">Done</span>    </td>
+                                            <td class="priority">           Medium
+    </td>
+                                            <td class="resolution">    Done
+</td>
+                                            <td class="assignee">            Sheila Hdez
+    </td>
+                                            <td class="reporter">            Charles Anderson
+    </td>
+                                            <td class="creator">            Charles Anderson
+    </td>
+                                            <td class="created"> 12/Feb/21 6:41 PM </td>
+                                            <td class="lastViewed"> &nbsp; </td>
+                                            <td class="updated"> 08/Apr/21 5:09 PM </td>
+                                            <td class="resolutiondate"> 08/Apr/21 5:09 PM </td>
+                                            <td class="versions">    &nbsp;
+</td>
+                                            <td class="fixVersions">    &nbsp;
+</td>
+                                            <td class="components">    &nbsp;
+</td>
+                                            <td class="duedate">    &nbsp;
+</td>
+                                            <td class="votes">0</td>
+                                            <td class="watches">1</td>
+                                            <td class="thumbnail"></td>
+                                            <td class="timeoriginalestimate"></td>
+                                            <td class="timeestimate"></td>
+                                            <td class="timespent"></td>
+                                            <td class="workratio">&nbsp;
+</td>
+                                            <td class="subtasks"></td>
+                                            <td class="issuelinks"></td>
+                                            <td class="environment"></td>
+                                            <td class="description"></td>
+                                            <td class="security"></td>
+                                            <td class="progress"></td>
+                                            <td class="aggregateprogress"></td>
+                                            <td class="aggregatetimespent"></td>
+                                            <td class="aggregatetimeestimate"></td>
+                                            <td class="aggregatetimeoriginalestimate"></td>
+                                            <td class="labels"></td>
+                                            <td class="statuscategorychangedate"> 08/Apr/21 5:09 PM </td>
+                                            <td class="statusCategory">
+    <span class="aui-lozenge aui-lozenge-subtle jira-issue-status-lozenge jira-issue-status-lozenge-green
+            jira-issue-status-lozenge-max-width-medium">Done</span>
+</td>
+                                            <td class="parent"></td>
+                                            <td class="customfield_10043"></td>
+                                            <td class="customfield_10032"></td>
+                                            <td class="customfield_10038"></td>
+                                            <td class="customfield_10033"></td>
+                                            <td class="customfield_10039"></td>
+                                            <td class="customfield_10036"></td>
+                                            <td class="customfield_10037"></td>
+                                            <td class="customfield_10041"></td>
+                                            <td class="customfield_10034"></td>
+                                            <td class="customfield_10040"></td>
+                                            <td class="customfield_10052"></td>
+                                            <td class="customfield_10046"></td>
+                                            <td class="customfield_10013"></td>
+                                            <td class="customfield_10014">
+            Appearance makeover
+    </td>
+                                            <td class="customfield_10011"></td>
+                                            <td class="customfield_10012"></td>
+                                            <td class="customfield_10021"></td>
+                                            <td class="customfield_10017"></td>
+                                            <td class="customfield_10055"></td>
+                                            <td class="customfield_10053"></td>
+                                            <td class="customfield_10002"></td>
+                                            <td class="customfield_10018"></td>
+                                            <td class="customfield_10047"></td>
+                                            <td class="customfield_10019">      0|i002ov:
+  </td>
+                                            <td class="customfield_10010"></td>
+                                            <td class="customfield_10050"></td>
+                                            <td class="customfield_10020">WC Sprint 1, WC Sprint 2</td>
+                                            <td class="customfield_10015"></td>
+                                            <td class="customfield_10026"></td>
+                                            <td class="customfield_10016"></td>
+                                            <td class="customfield_10054"></td>
+                                            <td class="customfield_10023"></td>
+                                            <td class="customfield_10022"></td>
+                                            <td class="customfield_10001"></td>
+                                            <td class="customfield_10056"></td>
+                                            <td class="customfield_10000"></td>
+                    </tr>
+        </tbody>
+    </table>
+    <div class="end-of-stable-message"></div>
+            <table border="1" >
+<tr>
+    <td bgcolor="#dddddd" colspan="75"><font size="1">
+        Generated at Mon Oct 10 13:20:31 UTC 2022 by Sheila Hdez using Jira 1001.0.0-SNAPSHOT#100207-sha1:591c2ef31e35afda9de5790078b985b6b94d11d4.
+    </font></td>
+</tr>
+</table>
+
+</body>
+</html>
