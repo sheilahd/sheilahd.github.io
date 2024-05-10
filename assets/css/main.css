@@ -2913,7 +2913,7 @@ button:disabled,
 }
 
 .tiles article:hover:before {
-  opacity: 0;
+  opacity: 10;
 }
 
 .tiles article.is-transitioning {
